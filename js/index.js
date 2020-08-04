@@ -53,9 +53,11 @@ document.addEventListener("copy", function(event){
 // dblclick on sign me up send alert
 const signupButton = document.querySelectorAll(".btn");
 
-signupButton.addEventListener("dblclick", function(event){
-    alert("Your adventure begins here!");
-});
+Array.from(signupButton).forEach(function(button){
+    button.addEventListener("dblclick", function(event){
+        alert("Your adventure begins here!");
+        });
+    });
 
 // add action on keydown
 
