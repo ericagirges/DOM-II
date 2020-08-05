@@ -102,7 +102,7 @@ destinations[0].addEventListener("dblclick", function(event){
 });
 
 
-// 
+// prevent default of links
 Array.from(navLinks).forEach(function(element) {
     element.addEventListener("click", function(event){
         console.log("Bye default!")
