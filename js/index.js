@@ -10,7 +10,7 @@ nav.addEventListener("click", function (event) {
   event.srcElement.setAttribute("style", "color: #F19804; font-size: 2.0rem;");
 });
 
-//declare variables
+
 const header = document.querySelector(".intro");
 const headerImg = header.querySelector("img");
 
@@ -35,9 +35,7 @@ textContent[0].addEventListener("mouseleave", function(event){
     event.target.setAttribute("style", "background: none; padding: nonee;");
 });
 
-
-// mousemove change color and add padding
-textContent[1].addEventListener("mousemove", function (event) {
+textContent[1].addEventListener("mouseenter", function (event) {
   event.target.setAttribute("style", "background: #FACC7C; padding: 10px;");
 });
 
@@ -45,19 +43,12 @@ textContent[1].addEventListener("mouseleave", function(event){
     event.target.setAttribute("style", "background: none; padding: nonee;");
 });
 
+
 // when text is copied send alert
 document.addEventListener("copy", function (event) {
   alert("Sucessfully copied.");
 });
 
-// dblclick on sign me up send alert
-const signupButton = document.querySelectorAll(".btn");
-
-Array.from(signupButton).forEach(function (button) {
-  button.addEventListener("dblclick", function (event) {
-    alert("Your adventure begins here!");
-  });
-});
 
 // add action on keydown
 const pageLogo = document.querySelector("h1");
@@ -72,5 +63,41 @@ document.addEventListener("keydown", function (event) {
 
 // on resize of window change color of h1
 window.addEventListener("resize", function (event) {
-  pageLogo.setAttribute("style", "color:#F65915; font-size: 3.6rem;");
+  pageLogo.setAttribute("style", "color:#F65915; font-size: 4.4rem;");
 });
+
+// dblclick on sign me up send alert
+const signupButton = document.querySelectorAll(".btn");
+
+Array.from(signupButton).forEach(function (button) {
+  button.addEventListener("dblclick", function (event) {
+    alert("Your adventure begins here!");
+    event.stopPropagation()
+  });
+});
+
+// scroll document
+const allH2 = document.querySelectorAll("h2");
+
+document.addEventListener("scroll", function(event) {
+    Array.from(allH2).forEach(function (element){
+        element.setAttribute("style", "background: linear-gradient(#7CFCE9, #FCE57C)")
+    })
+ 
+});
+
+
+// nested events
+const destinations = document.querySelectorAll(".destination");
+const clickDestination = document.createElement("button");
+
+// clickDestination.setAttribute("href", "#");
+clickDestination.setAttribute("style", "font-size: 2.0rem; border: none; background: orange; margin-top: 10px; color: black;")
+clickDestination.innerHTML = "Learn more here!"
+destinations[0].appendChild(clickDestination);
+
+destinations[0].addEventListener("dblclick", function(event){
+    alert("Make your dream vacation a reality!");
+    event.stopPropagation();
+});
+
