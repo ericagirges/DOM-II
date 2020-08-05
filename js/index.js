@@ -1,11 +1,11 @@
 // declare variables
-const navLink = document.querySelectorAll(".nav-link");
+const navLinks = document.querySelectorAll(".nav-link");
 const nav = document.querySelector("nav");
 
 // click nav link change color orange and increase font size
 nav.addEventListener("click", function (event) {
-  navLink.forEach((el) =>
-    el.setAttribute("style", "color: #000; font-size: 1.6rem;")
+  navLinks.forEach((element) =>
+    element.setAttribute("style", "color: #000; font-size: 1.6rem;")
   );
   event.srcElement.setAttribute("style", "color: #F19804; font-size: 2.0rem;");
 });
@@ -99,5 +99,14 @@ destinations[0].appendChild(clickDestination);
 destinations[0].addEventListener("dblclick", function(event){
     alert("Make your dream vacation a reality!");
     event.stopPropagation();
+});
+
+
+// 
+Array.from(navLinks).forEach(function(element) {
+    element.addEventListener("click", function(event){
+        console.log("Bye default!")
+        event.preventDefault();
+    })
 });
 
